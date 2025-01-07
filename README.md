@@ -41,13 +41,80 @@ This project is a web-based application designed for calculating emissions and o
 
 ---
 
-## Installation and Setup
+## How It Works
 
-### Prerequisites
-- A web server to host the HTML, CSS, and JavaScript files (e.g., Apache, Nginx, or a static hosting service like GitHub Pages).
-- API keys for the OpenStreetMap API and Gemini API.
+### Route Optimization
 
-### Steps
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-repository-url.git
+1.  **Input Locations**:
+    
+    -   Users enter the start and destination points in the web interface.
+    -   The coordinates are processed to snap to the nearest road location using the OpenStreetMap API.
+2.  **Route Calculation**:
+    
+    -   The API calculates the best route based on the provided coordinates.
+    -   Results are displayed in the UI.
+
+### Emission Calculation
+
+1.  **User Input**:
+    
+    -   Users provide details such as:
+        -   Distance traveled (in KM).
+        -   Fuel type (e.g., biodiesel, diesel, petrol).
+        -   Fuel consumption per 100 KM.
+2.  **API Call**:
+    
+    -   The application sends a request to the Gemini API with the input details.
+3.  **Response Handling**:
+    
+    -   The application parses the API response to extract relevant information.
+    -   Displays the emission calculation results in real-time.
+
+----------
+
+## Example Usage
+
+### Input Details:
+
+-   Distance: `120 KM`
+-   Fuel Type: `Diesel`
+-   Fuel Consumption: `8 L/100 KM`
+
+### Output:
+
+-   "Emission for your trip is approximately 20kg of CO2."
+
+----------
+
+## Screenshots
+
+1.  **Route Optimization Page**:
+    
+    -   Input start and destination points.
+    -   Display optimized routes on a map.
+2.  **Emission Calculation Page**:
+    
+    -   Form for entering travel and fuel details.
+    -   Real-time emission calculation results.
+
+----------
+
+## Known Issues
+
+-   The application currently supports only specific fuel types listed in the dropdown menu.
+-   Requires an active internet connection to fetch results from APIs.
+
+----------
+
+## Future Improvements
+
+-   Add support for additional fuel types.
+-   Enhance error handling for API failures.
+-   Improve UI/UX with animations and better visual indicators.
+-   Integrate a database to store user queries and results for future reference.
+
+----------
+
+## License
+
+This project is licensed under the MIT License.
