@@ -88,15 +88,6 @@ This project is a web-based application designed for calculating emissions and o
 
 ## Screenshots
 
-1.  **Route Optimization Page**:
-    
-    -   Input start and destination points.
-    -   Display optimized routes on a map.
-2.  **Emission Calculation Page**:
-    
-    -   Form for entering travel and fuel details.
-    -   Real-time emission calculation results.
-
 ----------
 
 ## Known Issues
