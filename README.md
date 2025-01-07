@@ -88,6 +88,8 @@ This project is a web-based application designed for calculating emissions and o
 
 ## Screenshots
 
+![screenshot](https://github.com/TechnicalVishalJi/iitmhackathon/raw/main/screenshots/iitmhackathon.png)
+
 ----------
 
 ## Known Issues
