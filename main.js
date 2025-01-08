@@ -76,55 +76,6 @@ function getCoordinates() {
       console.error("Error fetching coordinates:", err);
     });
 }
-
-// Define the API endpoint and API key
-const apiUrl =
-  "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse&key=AIzaSyCP6ipi4SEABHJIHaX9bHocK_4CmK2AsqM";
-
-// Create a function to handle SSE
-async function fetchSSE() {
-  // Data payload for the API request
-  const payload = {
-    contents: [
-      {
-        parts: [{ text: "What can you do?" }],
-      },
-    ],
-  };
-  try {
-    const response = await fetch(apiUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    // Get the readable stream
-    const reader = response.body.getReader();
-    const decoder = new TextDecoder("utf-8");
-
-    while (true) {
-      const { value, done } = await reader.read();
-      if (done) break;
-
-      // Decode the streamed chunk
-      const chunk = decoder.decode(value, { stream: true });
-
-      // Parse and log each SSE event (optional: parse the chunk if needed)
-      console.log("SSE Data Chunk:", chunk);
-    }
-
-    console.log("Stream ended.");
-  } catch (error) {
-    console.error("Error handling SSE:", error);
-  }
-}
-
 // Function to call Gemini API for emission calculation
 async function calculateEmissions() {
   const distance = document.getElementById("distance").value;
@@ -156,7 +107,7 @@ async function calculateEmissions() {
   };
 
   // API Key (Replace with your key)
-  const API_KEY = "AIzaSyCP6ipi4SEABHJIHaX9bHocK_4CmK2AsqM";
+  const API_KEY = "Gemini_api_key";
   const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse&key=${API_KEY}`;
 
   try {
